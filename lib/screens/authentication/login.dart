@@ -22,9 +22,9 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
+      backgroundColor: Kcolors.background,
+      body: Padding(
         padding: Kdimensions.paddingAll,
-        color: Kcolors.background,
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

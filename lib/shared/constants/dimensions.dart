@@ -13,5 +13,7 @@ class Kdimensions {
     borderRadius: borderAll,
   );
   static const verticleSpacing = SizedBox(height: 16.0);
+  static const verticleSpacingLarge = SizedBox(height: 32.0);
+  static const verticleSpacingSmall = SizedBox(height: 3.0);
   static const horizontalSpacing = SizedBox(width: 8.0);
 }

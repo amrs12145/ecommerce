@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/main/product.dart';
-import '../../../shared/constants/colors.dart';
-import '../../../shared/constants/dimensions.dart';
-import '../../../shared/constants/text_styles.dart';
-import '../../../shared/widgets/price.dart';
+import '/models/main/product.dart';
+import '/shared/constants/colors.dart';
+import '/shared/constants/dimensions.dart';
+import '/shared/constants/text_styles.dart';
+import '/shared/widgets/price.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({
@@ -12,6 +12,7 @@ class ProductItem extends StatelessWidget {
     required this.product,
   }) : super(key: key);
   final Product product;
+  static int i = 0; //TODO:to be removed after using product.id
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class ProductItem extends StatelessWidget {
                 child: FloatingActionButton(
                   //TODO:Can not trigger the bottom of the FAB (BUG)
                   heroTag:
-                      '${product.title}${product.newPrice}', //TODO:To be replaced with product.id
+                      '${product.title}${product.newPrice} ${i++}', //TODO:To be replaced with product.id
                   mini: true,
                   onPressed: () {},
                   backgroundColor: Kcolors.dark,

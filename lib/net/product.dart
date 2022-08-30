@@ -1,4 +1,4 @@
-import '../../models/main/product.dart';
+import '../models/main/product.dart';
 
 List<Product> loadProducts = [
   Product.fromJson({

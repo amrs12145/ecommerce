@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/main/product.dart';
-import '../../../shared/constants/dimensions.dart';
-import '../../../shared/constants/text_styles.dart';
+import '/models/main/product.dart';
+import '/shared/constants/dimensions.dart';
+import '/shared/constants/text_styles.dart';
 import 'product.dart';
 
 class Scroll extends StatelessWidget {

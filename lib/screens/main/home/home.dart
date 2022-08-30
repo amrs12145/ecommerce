@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../controller/main/product.dart';
-import '../../../shared/constants/colors.dart';
-import '../../../shared/constants/dimensions.dart';
-import '../../../shared/constants/text_styles.dart';
+import '/shared/constants/colors.dart';
+import '/shared/constants/dimensions.dart';
+import '/shared/constants/text_styles.dart';
+import '/net/product.dart';
 import 'scrollable.dart';
 
 class Home extends StatelessWidget {
@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 const Image(
-                  image: AssetImage("assets/images/HomeImg.png"),
+                  image: AssetImage("assets/images/home_img.png"),
                   fit: BoxFit.cover,
                 ),
                 Positioned(

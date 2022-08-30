@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import './home/home.dart';
-import './shop/shop.dart';
-import './cart/cart.dart';
-import './favorite/favorite.dart';
-import './profile/profile.dart';
 import '../../shared/constants/colors.dart';
 import '../../shared/constants/dimensions.dart';
+import 'home/home.dart';
+import 'shop/category.dart';
+import 'cart/cart.dart';
+import 'favorite/favorite.dart';
+import 'profile/profile.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
     Home(),
-    Shop(),
+    Category(),
     Cart(),
     Favorite(),
     Profile(),

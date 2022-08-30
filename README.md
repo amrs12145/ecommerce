@@ -2,15 +2,15 @@
 
 A new Flutter project.
 
-## Getting Started
+## Some Screen-shots of the app
 
-This project is a starting point for a Flutter application.
+# Authentication screen
+![login](https://github.com/amrs12145/ecommerce/blob/master/screenshots/login.png)
+![signUp](https://github.com/amrs12145/ecommerce/blob/master/screenshots/sign_up.png)
+![forget_password](https://github.com/amrs12145/ecommerce/blob/master/screenshots/forget_password.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Home screen
+![home](https://github.com/amrs12145/ecommerce/blob/master/screenshots/home.png)
+# Shop screen
+![shop_category](https://github.com/amrs12145/ecommerce/blob/master/screenshots/shop_category.png)
+![shopt_bottom_sheet](https://github.com/amrs12145/ecommerce/blob/master/screenshots/shopt_bottom_sheet.png)

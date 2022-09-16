@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/main/shop/shop.dart';
 import 'package:flutter/material.dart';
 
 import '/core/string_extension.dart';
@@ -84,39 +85,37 @@ class Category extends StatelessWidget {
                         Kdimensions.verticleSpacing,
                         ...getDepartment(category: category)
                             .map(
-                              (department) => Column(
-                                children: [
-                                  SizedBox(
-                                    height: 100,
-                                    child: ElevatedButton(
-                                      onPressed: () {},
-                                      style: ElevatedButton.styleFrom(
-                                        primary: Kcolors.dark,
-                                        shape: Kdimensions.roundBorder,
-                                        padding: const EdgeInsets.only(
-                                          left: 26.0,
-                                        ),
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              department.name.capitalize(),
-                                              style: KtextStyle.bodyText,
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Image.network(
-                                              department.imgUrl,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                              (department) => Container(
+                                height: 100,
+                                margin: const EdgeInsets.only(
+                                  bottom: Kdimensions.marginUnit,
+                                ),
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Kcolors.dark,
+                                    shape: Kdimensions.roundBorder,
+                                    padding: const EdgeInsets.only(
+                                      left: 26.0,
                                     ),
                                   ),
-                                  Kdimensions.verticleSpacing,
-                                ],
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          department.name.capitalize(),
+                                          style: KtextStyle.bodyText,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Image.network(
+                                          department.imgUrl,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             )
                             .toList(),
@@ -131,7 +130,16 @@ class Category extends StatelessWidget {
                                 itemCount: tags.length,
                                 separatorBuilder: (_, __) => const Divider(),
                                 itemBuilder: (context, i) => TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => Shop(
+                                          category: category,
+                                          tag: tags[i],
+                                        ),
+                                      ),
+                                    );
+                                  },
                                   style: TextButton.styleFrom(
                                     primary: Colors.white,
                                     alignment: Alignment.centerLeft,

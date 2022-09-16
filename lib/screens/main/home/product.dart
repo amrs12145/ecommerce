@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../shared/widgets/stars.dart';
 import '/models/main/product.dart';
 import '/shared/constants/colors.dart';
 import '/shared/constants/dimensions.dart';
@@ -10,8 +11,14 @@ class ProductItem extends StatelessWidget {
   const ProductItem({
     Key? key,
     required this.product,
+    this.width,
+    this.height,
   }) : super(key: key);
+
   final Product product;
+  final double? width;
+  final double? height;
+
   static int i = 0; //TODO:to be removed after using product.id
 
   @override
@@ -29,8 +36,8 @@ class ProductItem extends StatelessWidget {
                 borderRadius: Kdimensions.borderAll,
                 child: Image.network(
                   product.mainImgUrl,
-                  width: 150,
-                  height: 185,
+                  width: width ?? 150,
+                  height: height ?? 185,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -73,42 +80,9 @@ class ProductItem extends StatelessWidget {
             ],
           ),
           Kdimensions.verticleSpacingSmall,
-          // TODO:to handle the rating logic
-          Row(
-            children: [
-              const Icon(
-                Icons.star,
-                color: Color(0xffFFBA49),
-                size: 16,
-              ),
-              const Icon(
-                Icons.star,
-                color: Color(0xffFFBA49),
-                size: 16,
-              ),
-              const Icon(
-                Icons.star,
-                color: Color(0xffFFBA49),
-                size: 16,
-              ),
-              const Icon(
-                Icons.star,
-                color: Color(0xffFFBA49),
-                size: 16,
-              ),
-              const Icon(
-                Icons.star,
-                color: Color(0xffFFBA49),
-                size: 16,
-              ),
-              Text(
-                ' ${product.numOfRating ?? '(${product.numOfRating ?? 0})'}',
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
-              ),
-            ],
+          Stars(
+            rating: product.rating,
+            numOfRating: product.numOfRating,
           ),
           Kdimensions.verticleSpacingSmall,
           Text(

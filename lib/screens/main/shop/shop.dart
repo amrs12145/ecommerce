@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:ecommerce/core/sized_box.dart';
 import 'package:ecommerce/core/string_extension.dart';
 import 'package:ecommerce/models/main/shop/category.dart';
@@ -9,10 +7,12 @@ import 'package:ecommerce/screens/main/home/product.dart';
 import 'package:ecommerce/shared/constants/colors.dart';
 import 'package:ecommerce/shared/constants/dimensions.dart';
 import 'package:ecommerce/shared/constants/text_styles.dart';
+import 'package:ecommerce/shared/widgets/bottom_sheet.dart';
 import 'package:ecommerce/shared/widgets/price.dart';
 import 'package:ecommerce/shared/widgets/stars.dart';
 import 'package:flutter/material.dart';
 
+import '../../../models/main/shop/sort_by.dart';
 import '../../../models/main/shop/tag.dart';
 import '../../../shared/widgets/chips.dart';
 
@@ -31,7 +31,8 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
-  bool _switch = true;
+  bool _switchScreenView = true;
+  SortBy? _sortBy;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +78,7 @@ class _ShopState extends State<Shop> {
                 ),
               ),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: Kdimensions.verticleSpacing,
             ),
             SliverAppBar(
@@ -89,35 +90,66 @@ class _ShopState extends State<Shop> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton.icon(
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       primary: Colors.white,
                     ),
-                    onPressed: () {},
-                    icon: Icon(Icons.filter_list),
-                    label: Text('Filters'),
+                    icon: const Icon(Icons.filter_list),
+                    label: const Text('Filters'),
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      KbottomSheet.show(
+                        context: context,
+                        text: 'Sort by',
+                        height: 500,
+                        child: ListView.separated(
+                          itemCount: SortBy.values.length,
+                          separatorBuilder: (_, __) => const Divider(),
+                          itemBuilder: (context, i) => TextButton(
+                            onPressed: () {
+                              setState(() {
+                                _sortBy == SortBy.values[i]
+                                    ? _sortBy = null
+                                    : _sortBy = SortBy.values[i];
+                                Navigator.of(context).pop();
+                              });
+                            },
+                            style: TextButton.styleFrom(
+                              // TODO:To use the background color instead of primary(late)
+                              primary: _sortBy == SortBy.values[i]
+                                  ? Kcolors.primary
+                                  : Colors.white,
+                              alignment: Alignment.centerLeft,
+                              padding: EdgeInsets.zero,
+                            ),
+                            child: Text(
+                              '${SortBy.values[i].name.capitalize().replaceAll('_', ' ')}   ${_sortBy == SortBy.values[i] ? 'x' : ''}',
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       primary: Colors.white,
                     ),
-                    icon: Icon(Icons.sort),
-                    label: Text('Price: lowest to high'),
+                    icon: const Icon(Icons.sort),
+                    label: const Text('Price: lowest to high'),
                   ),
                   IconButton(
                     onPressed: () {
                       setState(() {
-                        _switch = !_switch;
+                        _switchScreenView = !_switchScreenView;
                       });
                     },
-                    icon: Icon(Icons.view_compact),
+                    icon: const Icon(Icons.view_compact),
                   ),
                 ],
               ),
             ),
             SliverPadding(
               padding: Kdimensions.paddingAll,
-              sliver: _switch
+              sliver: _switchScreenView
                   ? SliverGrid(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,

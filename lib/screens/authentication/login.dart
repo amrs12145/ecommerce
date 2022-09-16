@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:email_validator/email_validator.dart';
 
 import './forget_password.dart';
-import '../main/navbar.dart';
+import '../../shared/widgets/navbar/navbar.dart';
 import '../../shared/widgets/button.dart';
 import '../../shared/widgets/form_field.dart';
 import '../../shared/constants/colors.dart';

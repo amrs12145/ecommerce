@@ -19,16 +19,16 @@ class PriceTag extends StatelessWidget {
         children: [
           if (oldPrice != null)
             TextSpan(
-              text: '$oldPrice\$',
+              text: '${oldPrice!.toInt()}\$',
               style: const TextStyle(
                 color: Colors.grey,
                 decoration: TextDecoration.lineThrough,
               ),
             ),
           TextSpan(
-            text: ' $newPrice\$',
-            style: const TextStyle(
-              color: Kcolors.primary,
+            text: ' ${newPrice.toInt()}\$',
+            style: TextStyle(
+              color: oldPrice == null ? null : Kcolors.primary,
               fontWeight: FontWeight.bold,
             ),
           ),

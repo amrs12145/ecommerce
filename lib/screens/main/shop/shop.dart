@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import '../../../models/main/shop/sort_by.dart';
 import '../../../models/main/shop/tag.dart';
 import '../../../shared/widgets/chips.dart';
+import 'filters.dart';
 
 class Shop extends StatefulWidget {
   final CategoryEnum category;
@@ -90,7 +91,13 @@ class _ShopState extends State<Shop> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) {
+                          return Filters();
+                        }),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       primary: Colors.white,
                     ),

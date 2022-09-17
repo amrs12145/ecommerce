@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_color_generator/material_color_generator.dart';
 
 import './screens/authentication/sign_up.dart';
 import './shared/constants/colors.dart';
+import 'shared/widgets/navbar/Bloc/cubit.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -21,18 +23,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Ecommerce',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: generateMaterialColor(color: Kcolors.primary),
-        primaryTextTheme: const TextTheme(),
+    return BlocProvider(
+      create: (BuildContext context) => NavbarCubit(),
+      child: MaterialApp(
+        title: 'Ecommerce',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: generateMaterialColor(color: Kcolors.primary),
+          primaryTextTheme: const TextTheme(),
+        ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+        ),
+        themeMode: ThemeMode.dark,
+        home: SignUp(),
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      themeMode: ThemeMode.dark,
-      home: SignUp(),
     );
   }
 }

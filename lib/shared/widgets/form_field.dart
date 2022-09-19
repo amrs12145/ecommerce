@@ -13,6 +13,7 @@ class KformField extends StatelessWidget {
     this.fillColor,
     this.filled = true,
     this.border,
+    this.padding,
     this.validator,
     this.onChanged,
   }) : super(key: key);
@@ -27,6 +28,7 @@ class KformField extends StatelessWidget {
   final Color? fillColor;
   final bool filled;
   final InputBorder? border;
+  final EdgeInsets? padding;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
 
@@ -39,6 +41,7 @@ class KformField extends StatelessWidget {
       cursorColor: cursorColor,
       obscureText: obscureText,
       decoration: InputDecoration(
+        contentPadding: padding,
         hintText: hintText,
         label: label,
         prefixIcon: prefixIcon,

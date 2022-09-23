@@ -9,43 +9,49 @@ class KmultiSlider extends StatefulWidget {
     Key? key,
     required this.min,
     required this.max,
+    required this.range,
   }) : super(key: key);
 
   final double min;
   final double max;
+  final List<double> range;
 
   @override
   State<KmultiSlider> createState() => _KmultiSliderState();
 }
 
 class _KmultiSliderState extends State<KmultiSlider> {
-  List<double>? _values;
+  late List<double> value;
 
   @override
   Widget build(BuildContext context) {
+    value = widget.range;
+    if (value.isEmpty) {
+      value.add(widget.min);
+      value.add(widget.max);
+    }
+
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: (_values == null)
-              ? [
-                  Text('\$${widget.min.toInt().toString()}'),
-                  Text('\$${widget.max.toInt().toString()}'),
-                ]
-              : [
-                  Text('\$${_values!.first.toInt().toString()}'),
-                  Text('\$${_values!.last.toInt().toString()}'),
-                ],
+          children: [
+            Text('\$${value.first.toInt().toString()}'),
+            Text('\$${value.last.toInt().toString()}'),
+          ],
         ),
         MultiSlider(
           onChanged: (values) {
-            setState(() => _values = values);
+            setState(() {
+              value[0] = values[0];
+              value[1] = values[1];
+            });
           },
-          values: _values ?? [widget.min, widget.max],
+          values: [value.first, value.last],
           min: widget.min,
           max: widget.max,
           color: Kcolors.primary,
-          horizontalPadding: Kdimensions.paddingUnit,
+          horizontalPadding: Kdimensions.paddingUnit - 6,
         ),
       ],
     );

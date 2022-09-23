@@ -8,11 +8,13 @@ class KoutlinedButton extends StatefulWidget {
   const KoutlinedButton({
     Key? key,
     required this.text,
+    required this.selected,
     this.width,
   }) : super(key: key);
 
   final String text;
   final double? width;
+  final List<String> selected;
 
   @override
   State<KoutlinedButton> createState() => _KoutlinedButtonState();
@@ -23,8 +25,14 @@ class _KoutlinedButtonState extends State<KoutlinedButton> {
 
   @override
   Widget build(BuildContext context) {
+    _isActive = widget.selected.contains(widget.text);
+
     return OutlinedButton(
       onPressed: () {
+        _isActive
+            ? widget.selected.remove(widget.text)
+            : widget.selected.add(widget.text);
+
         setState(() => _isActive = !_isActive);
       },
       style: TextButton.styleFrom(

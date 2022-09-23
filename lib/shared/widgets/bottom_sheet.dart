@@ -11,13 +11,14 @@ class KbottomSheet {
     required String text,
     required Widget child,
     Widget? buttons,
+    double? height,
   }) {
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: ((context) {
         return Container(
-          height: MediaQuery.of(context).size.height * .80,
+          height: height ?? MediaQuery.of(context).size.height * .80,
           padding: Kdimensions.paddingAll,
           color: Kcolors.background,
           child: Column(

@@ -6,6 +6,12 @@ class KtextStyle {
     fontSize: 32,
   );
 
+  static const TextStyle headline2 = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 22,
+    height: 1.1,
+  );
+
   static const TextStyle bodyText = TextStyle(
     fontWeight: FontWeight.bold,
   );

@@ -3,7 +3,7 @@ import 'package:ecommerce/core/string_extension.dart';
 import 'package:ecommerce/models/main/shop/category.dart';
 import 'package:ecommerce/net/product.dart';
 import 'package:ecommerce/net/tag.dart';
-import 'package:ecommerce/screens/main/home/product.dart';
+import 'package:ecommerce/shared/widgets/product_card.dart';
 import 'package:ecommerce/shared/constants/colors.dart';
 import 'package:ecommerce/shared/constants/dimensions.dart';
 import 'package:ecommerce/shared/constants/text_styles.dart';
@@ -19,8 +19,8 @@ import '../../../models/main/shop/tag.dart';
 import '../../../shared/widgets/chips.dart';
 import 'filters.dart';
 
-class Shop extends StatefulWidget {
-  const Shop({
+class Catalog extends StatefulWidget {
+  const Catalog({
     Key? key,
     required this.category,
     required this.tag,
@@ -30,10 +30,10 @@ class Shop extends StatefulWidget {
   final Tag tag;
 
   @override
-  State<Shop> createState() => _ShopState();
+  State<Catalog> createState() => _CatalogState();
 }
 
-class _ShopState extends State<Shop> {
+class _CatalogState extends State<Catalog> {
   bool _switchScreenView = true;
   SortBy? _sortBy;
 
@@ -182,7 +182,7 @@ class _ShopState extends State<Shop> {
                         delegate: SliverChildBuilderDelegate(
                           childCount: loadProducts.length,
                           (context, i) {
-                            return ProductItem(
+                            return ProductCard(
                               width: 164,
                               product: loadProducts[i],
                             );

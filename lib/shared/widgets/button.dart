@@ -22,7 +22,7 @@ class Kbutton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         primary: primary ?? Kcolors.primary,
         minimumSize: const Size.fromHeight(50),
-        shape: Kdimensions.roundBorder,
+        shape: Kdimensions.roundBorderLarge.copyWith(),
       ),
       child: Text(
         text.toUpperCase(),

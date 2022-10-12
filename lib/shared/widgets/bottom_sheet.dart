@@ -14,13 +14,25 @@ class KbottomSheet {
     double? height,
   }) {
     return showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40.0),
+          topRight: Radius.circular(40.0),
+        ),
+      ),
       context: context,
       isScrollControlled: true,
-      builder: ((context) {
+      builder: (context) {
         return Container(
           height: height ?? MediaQuery.of(context).size.height * .80,
           padding: Kdimensions.paddingAll,
-          color: Kcolors.background,
+          decoration: const BoxDecoration(
+            color: Kcolors.background,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40.0),
+              topRight: Radius.circular(40.0),
+            ),
+          ),
           child: Column(
             children: [
               Kdimensions.verticleSpacing,
@@ -44,7 +56,7 @@ class KbottomSheet {
             ],
           ),
         );
-      }),
+      },
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:ecommerce/screens/main/shop/shop.dart';
+import 'package:ecommerce/screens/main/shop/catalog.dart';
 import 'package:flutter/material.dart';
 
 import '/core/string_extension.dart';
@@ -133,7 +133,7 @@ class Category extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
-                                        builder: (context) => Shop(
+                                        builder: (context) => Catalog(
                                           category: category,
                                           tag: tags[i],
                                         ),

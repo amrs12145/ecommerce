@@ -19,4 +19,6 @@ A new Flutter project.
 ![shop_sort_by](https://github.com/amrs12145/ecommerce/blob/master/screenshots/shop_sort_by.png)
 ![shop_filters](https://github.com/amrs12145/ecommerce/blob/master/screenshots/shop_filters.png)
 ![shop_filters_brand](https://github.com/amrs12145/ecommerce/blob/master/screenshots/shop_filters_brand.png)
-
+![product](https://github.com/amrs12145/ecommerce/blob/master/screenshots/product.png)
+![product2](https://github.com/amrs12145/ecommerce/blob/master/screenshots/product2.png)
+![product_size](https://github.com/amrs12145/ecommerce/blob/master/screenshots/product_size.png)

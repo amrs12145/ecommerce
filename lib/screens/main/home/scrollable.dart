@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '/models/main/product.dart';
 import '/shared/constants/dimensions.dart';
 import '/shared/constants/text_styles.dart';
-import 'product.dart';
+import '../../../shared/widgets/product_card.dart';
 
 class Scroll extends StatelessWidget {
   const Scroll({
@@ -56,7 +56,7 @@ class Scroll extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: products.length,
             separatorBuilder: (_, __) => const SizedBox(width: 18.0),
-            itemBuilder: (context, i) => ProductItem(product: products[i]),
+            itemBuilder: (context, i) => ProductCard(product: products[i]),
           ),
         ),
       ],

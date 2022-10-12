@@ -36,10 +36,7 @@ class Filters extends StatelessWidget {
         backgroundColor: Kcolors.background,
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: Kdimensions.verticleSpacingLarge.unit,
-          horizontal: Kdimensions.paddingUnit,
-        ),
+        padding: Kdimensions.paddingBottomNavBar,
         child: Row(
           children: [
             Expanded(
